@@ -44,4 +44,26 @@ formElement.addEventListener('submit', function (event) {
     promoCodeInputElement.classList.add('is-invalid')
   }
 
+  // calcolo prezzo preventivo
+  let hoursWork = 10;
+  let workType = workTypeInputElement.value;
+  let pricePreventive;
+
+  switch (workType) {
+    case ('backend'):
+      pricePreventive = backendPrice * hoursWork;
+      break;
+    case ('frontend'):
+      pricePreventive = frontendPrice * hoursWork;
+      break
+    case ('analysis'):
+      pricePreventive = analysisPrice * hoursWork;
+      break;
+  }
+
+  // applicazione sconto se valido
+  if (isPromoCodeValid(promoCode)) {
+    pricePreventive *= 0.75;
+  }
+
 });
