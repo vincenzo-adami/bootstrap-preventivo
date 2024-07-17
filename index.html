@@ -37,21 +37,72 @@
     </header>
 
     <main>
-      <section class="container">
+      <section class="container py-3">
         <div class="row">
           <div class="col-lg-9">
-
-          </div>
-          <div class="col-lg-3">
-
+            <h1>Richiesta Preventivo</h1>
+            <p>
+              Compila il form per richiedere un preventivo per i nostri servizi di sviluppo
+            </p>
+            <form class="row g-3" action="" method="post">
+              <div class="col-12">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome">
+              </div>
+              <div class="col-12">
+                <label for="cognome" class="form-label">Cognome</label>
+                <input type="text" class="form-control" id="cognome">
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="col-12">
+                <label for="tipoLavoro" class="form-label">Tipo di Lavoro</label>
+                <select class="form-select" id="tipoLavoro">
+                  <option selected value="">-- Scegli --</option>
+                  <option value="backend">Backend Development</option>
+                  <option value="frontend">Frontend Development</option>
+                  <option value="analysis">Project Analysis</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="commenti" class="form-label">
+                  Textarea con Bootsrap 5
+                </label>
+                <textarea class="form-control" name="commenti" id="commenti" rows="3"></textarea>
+              </div>
+              <div class="col-12">
+                <label for="promoCode" class="form-label">
+                  Codice Promozionale (opzionale)
+                </label>
+                <input type="text" class="form-control" id="promoCode">
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Accetto la Privacy Policy
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 d-flex justify-content-around">
+                <button type="submit" class="btn btn-primary align-self-baseline">
+                  Calcola preventivo
+                </button>
+                <span class="align-self-center">
+                  <span class="fs-6 fw-bold d-block align-self-baseline">Prezzo finale</span>
+                  <span class="fw-bold fs-5" id="units">€ 200</span><span class="text-body-tertiary"
+                        id="digits">,00</span>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
-
       </section>
-
     </main>
 
-    <footer class="bg-dark text-white">
+    <footer class="bg-dark text-white  mt-5">
       <div class="container d-flex justify-content-center">
         <div class="row p-4">
           <div class="col">
