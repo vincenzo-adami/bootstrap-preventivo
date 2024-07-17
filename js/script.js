@@ -11,7 +11,7 @@ const privacyPolicyInputElement = document.getElementById('privacy-policy');
 
 // elementi prezzo finale preventivo
 const finalPriceContainer = document.getElementById('final-price-container');
-const unityElement = document.getElementById('unity');
+const unityElement = document.getElementById('units');
 const digitsElement = document.getElementById('digits');
 
 // array di codici promozionali
@@ -34,7 +34,6 @@ formElement.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const promoCode = promoCodeInputElement.value;
-  console.log(promoCode)
   // pulizia classi di validazione
   promoCodeInputElement.classList.remove('is-invalid', 'is-valid')
 
@@ -65,5 +64,14 @@ formElement.addEventListener('submit', function (event) {
   if (isPromoCodeValid(promoCode)) {
     pricePreventive *= 0.75;
   }
+
+  finalPriceContainer.classList.remove('d-none');
+  let pricePreventiveHuman = pricePreventive.toFixed(2);
+  let unitPricePreventiveHuman = pricePreventiveHuman.slice(0, -3);
+  console.log(unitPricePreventiveHuman)
+  let digitsPricePreventiveHuman = pricePreventiveHuman.slice(-2);
+  console.log(digitsPricePreventiveHuman)
+  unityElement.innerHTML = '€ ' + unitPricePreventiveHuman;
+  digitsElement.innerHTML = "," + digitsPricePreventiveHuman;
 
 });
