@@ -84,8 +84,10 @@ formElement.addEventListener('submit', function (event) {
   //     break;
   // }
 
+  // controllo se è presente l'elemento selzionato in worksTypeArray
   let worksTypeArrayFindName = worksTypeArray.includes(workType);
 
+  // calcolo del prezzo prendendo i valori da worksTypeArray
   if (!worksTypeArrayFindName) {
     let priceHourseFind = worksTypeArray.filter((worksTypeArray) => worksTypeArray.name === workType);
     pricePreventive = priceHourseFind[0].priceHours * hoursWork;
