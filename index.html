@@ -14,7 +14,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">Bool Factory</a>
+          <a class="navbar-brand" href="#">Bool Factory</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Servizi</a>
@@ -46,63 +46,39 @@
             <p>
               Compila il form per richiedere un preventivo per i nostri servizi di sviluppo
             </p>
-            <form class="row g-3" action="" method="post">
+            <form class="row g-3" action="" method="post" id="form-preventivo">
               <div class="col-12">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" required>
-                <div class="valid-feedback">
-                  Ottimo!
-                </div>
-                <div class="invalid-feedback">
-                  Per piace inserisci il tuo nome
-                </div>
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" required>
               </div>
               <div class="col-12">
-                <label for="cognome" class="form-label">Cognome</label>
-                <input type="text" class="form-control" id="cognome" required>
-                <div class="valid-feedback">
-                  Ottimo!
-                </div>
-                <div class="invalid-feedback">
-                  Per piace inserisci il tuo cognome
-                </div>
+                <label for="surname" class="form-label">Cognome</label>
+                <input type="text" class="form-control" id="surname" required>
               </div>
               <div class="col-12">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" required>
-                <div class="valid-feedback">
-                  Ottimo!
-                </div>
-                <div class="invalid-feedback">
-                  Per piace inserisci una email valida
-                </div>
               </div>
               <div class="col-12">
-                <label for="tipoLavoro" class="form-label">Tipo di Lavoro</label>
-                <select class="form-select" id="tipoLavoro" required>
+                <label for="work-type" class="form-label">Tipo di Lavoro</label>
+                <select class="form-select" id="work-type" required>
                   <option selected disabled value="">-- Scegli --</option>
                   <option value="backend">Backend Development</option>
                   <option value="frontend">Frontend Development</option>
                   <option value="analysis">Project Analysis</option>
                 </select>
-                <div class="valid-feedback">
-                  Ottimo!
-                </div>
-                <div class="invalid-feedback">
-                  Per piacere seleziona un tipo di lavoro
-                </div>
               </div>
               <div class="col-12">
-                <label for="commenti" class="form-label">
+                <label for="comments" class="form-label">
                   Textarea con Bootsrap 5
                 </label>
-                <textarea class="form-control" name="commenti" id="commenti" rows="3"></textarea>
+                <textarea class="form-control" name="comments" id="comments" rows="3"></textarea>
               </div>
               <div class="col-12">
-                <label for="promoCode" class="form-label">
+                <label for="promo-code" class="form-label">
                   Codice Promozionale (opzionale)
                 </label>
-                <input type="text" class="form-control" id="promoCode">
+                <input type="text" class="form-control" id="promo-code">
                 <div class="valid-feedback">
                   Il codice è valido!
                 </div>
@@ -112,16 +88,10 @@
               </div>
               <div class="col-12">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="privacyPolicy" required>
-                  <label class="form-check-label" for="privacyPolicy">
+                  <input class="form-check-input" type="checkbox" id="privacy-policy" required>
+                  <label class="form-check-label" for="privacy-policy">
                     Accetto la Privacy Policy
                   </label>
-                  <div class="valid-feedback">
-                    Ottimo!
-                  </div>
-                  <div class="invalid-feedback">
-                    Per piace accetta
-                  </div>
                 </div>
               </div>
               <div class="col-12 col-lg-6 d-flex justify-content-center">
@@ -129,10 +99,10 @@
                   Calcola preventivo
                 </button>
               </div>
-              <div class="col-12 col-lg-6 d-flex justify-content-center">
+              <div class="col-12 col-lg-6 d-flex justify-content-center" id="final-price-container">
                 <span class="align-self-center">
                   <span class="fs-6 fw-bold d-block align-self-baseline">Prezzo finale</span>
-                  <span class="fw-bold fs-5" id="units">€ 200</span><span class="text-body-tertiary"
+                  <span class="fw-bold fs-5" id="units" itemid="unity">€ 200</span><span class="text-body-tertiary"
                         id="digits">,00</span>
                 </span>
               </div>
@@ -174,6 +144,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
             </script>
+    <!-- script proprietario -->
     <script src="./js/script.js"></script>
   </body>
 </html>
