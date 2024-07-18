@@ -85,26 +85,23 @@ formElement.addEventListener('submit', function (event) {
   // }
 
   // controllo se è presente l'elemento selzionato in worksTypeArray
-  let worksTypeArrayFindName = worksTypeArray.includes(workType);
+  let worksTypeArrayFindName = worksTypeArray.find(({ name }) => name === workType)
 
   // calcolo del prezzo prendendo i valori da worksTypeArray
-  if (!worksTypeArrayFindName) {
+  if (worksTypeArrayFindName) {
     let priceHourseFind = worksTypeArray.filter((worksTypeArray) => worksTypeArray.name === workType);
     pricePreventive = priceHourseFind[0].priceHours * hoursWork;
-  }
+    // applicazione sconto se valido
+    if (isPromoCodeValid(promoCode)) {
+      pricePreventive *= 0.75;
+    }
 
-  // applicazione sconto se valido
-  if (isPromoCodeValid(promoCode)) {
-    pricePreventive *= 0.75;
+    finalPriceContainer.classList.remove('d-none');
+    let pricePreventiveHuman = pricePreventive.toFixed(2);
+    let unitPricePreventiveHuman = pricePreventiveHuman.slice(0, -3);
+    let digitsPricePreventiveHuman = pricePreventiveHuman.slice(-2);
+    unityElement.innerHTML = '€ ' + unitPricePreventiveHuman;
+    digitsElement.innerHTML = "," + digitsPricePreventiveHuman;
   }
-
-  finalPriceContainer.classList.remove('d-none');
-  let pricePreventiveHuman = pricePreventive.toFixed(2);
-  let unitPricePreventiveHuman = pricePreventiveHuman.slice(0, -3);
-  console.log(unitPricePreventiveHuman)
-  let digitsPricePreventiveHuman = pricePreventiveHuman.slice(-2);
-  console.log(digitsPricePreventiveHuman)
-  unityElement.innerHTML = '€ ' + unitPricePreventiveHuman;
-  digitsElement.innerHTML = "," + digitsPricePreventiveHuman;
 
 });
