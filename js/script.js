@@ -18,7 +18,7 @@ const digitsElement = document.getElementById('digits');
 const promoCodes = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24']
 
 // array di oggetti composto da tipo servizio e costo servizio
-let worksTypeArray = [
+const worksTypeArray = [
   {
     name: 'Backend Development',
     priceHours: 20.50
@@ -58,18 +58,22 @@ formElement.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const promoCode = promoCodeInputElement.value;
+
   // pulizia classi di validazione
   promoCodeInputElement.classList.remove('is-invalid', 'is-valid')
 
-  if (isPromoCodeValid(promoCode)) {
-    promoCodeInputElement.classList.add('is-valid')
-  } else {
-    promoCodeInputElement.classList.add('is-invalid')
+  // controllo che promoCode sia valido o meno
+  if (!(promoCode === '')) {
+    if (isPromoCodeValid(promoCode)) {
+      promoCodeInputElement.classList.add('is-valid')
+    } else {
+      promoCodeInputElement.classList.add('is-invalid')
+    }
   }
 
   // calcolo prezzo preventivo
-  let hoursWork = 10;
-  let workType = workTypeInputElement.value;
+  const hoursWork = 10; // ore di lavoro richieste
+  const workType = workTypeInputElement.value;
   let pricePreventive;
 
   // switch (workType) {
@@ -85,11 +89,11 @@ formElement.addEventListener('submit', function (event) {
   // }
 
   // controllo se è presente l'elemento selzionato in worksTypeArray
-  let worksTypeArrayFindName = worksTypeArray.find(({ name }) => name === workType)
+  const worksTypeArrayFindName = worksTypeArray.find(({ name }) => name === workType)
 
   // calcolo del prezzo prendendo i valori da worksTypeArray
   if (worksTypeArrayFindName) {
-    let priceHourseFind = worksTypeArray.filter((worksTypeArray) => worksTypeArray.name === workType);
+    const priceHourseFind = worksTypeArray.filter((worksTypeArray) => worksTypeArray.name === workType);
     pricePreventive = priceHourseFind[0].priceHours * hoursWork;
     // applicazione sconto se valido
     if (isPromoCodeValid(promoCode)) {
@@ -97,9 +101,9 @@ formElement.addEventListener('submit', function (event) {
     }
 
     finalPriceContainer.classList.remove('d-none');
-    let pricePreventiveHuman = pricePreventive.toFixed(2);
-    let unitPricePreventiveHuman = pricePreventiveHuman.slice(0, -3);
-    let digitsPricePreventiveHuman = pricePreventiveHuman.slice(-2);
+    const pricePreventiveHuman = pricePreventive.toFixed(2);
+    const unitPricePreventiveHuman = pricePreventiveHuman.slice(0, -3);
+    const digitsPricePreventiveHuman = pricePreventiveHuman.slice(-2);
     unityElement.innerHTML = '€ ' + unitPricePreventiveHuman;
     digitsElement.innerHTML = "," + digitsPricePreventiveHuman;
   }
